@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model; 
 
-class Example extends Model
+class Empresa extends Model
 {
 
     //The attributes that should be not changed 
     protected $primaryKey = "id";
 
     //Table's name of the model 
-    protected $table = "examples";
+    protected $table = "empresas";
 
     //The attributes that are table's timestamps 
     public $timestamps = ["created_at", "updated_at"];

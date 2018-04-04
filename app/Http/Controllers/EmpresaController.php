@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers; 
 
-use App\Example; 
+use App\Empresa; 
 use Illuminate\Http\Request; 
 use Validator; 
 
-class ExampleController extends Controller
+class EmpresaController extends Controller
 {
 
     //construct
@@ -36,11 +36,11 @@ class ExampleController extends Controller
         $success = true;
         $log     = [];
 
-        $example = new Example();
+        $empresa = new Empresa();
 
         $response['success'] = $success;
         $response['log']     = $log;
-        $response['example'] = $example;
+        $response['empresa'] = $empresa;
         return $response;
     }
 
@@ -53,7 +53,7 @@ class ExampleController extends Controller
 
         $rules = [];
 
-        $validator = Validator::make($request->all(), $rules, Example::$messages);
+        $validator = Validator::make($request->all(), $rules, Empresa::$messages);
 
         if ($validator->fails())
         {
@@ -77,14 +77,14 @@ class ExampleController extends Controller
 
 
     //chamada da tela para editar um objeto
-    public function edicao($example_id)
+    public function edicao($empresa_id)
     {
         $success = true;
         $log     = [];
 
-        $example = Example::find($example_id);
+        $empresa = Empresa::find($empresa_id);
 
-        if(!isset($example))
+        if(!isset($empresa))
         {
             $success = false;
             $log[]   = ['error' => 'Item não encontrado'];
@@ -97,14 +97,14 @@ class ExampleController extends Controller
 
 
     //post para editar um objeto
-    public function edita(Request $request, $example_id)
+    public function edita(Request $request, $empresa_id)
     {
         $success = true;
         $log     = [];
 
-        $example = Example::find($example_id);
+        $empresa = Empresa::find($empresa_id);
 
-        if(!isset($example))
+        if(!isset($empresa))
         {
             $success = false;
             $log[]   = ['error' => 'Item não encontrado'];
@@ -113,7 +113,7 @@ class ExampleController extends Controller
         {
             $rules = [];
 
-           $validator = Validator::make($request->all(), $rules, Example::$messages);
+           $validator = Validator::make($request->all(), $rules, Empresa::$messages);
 
            if ($validator->fails())
            {
@@ -139,14 +139,14 @@ class ExampleController extends Controller
 
 
     //chamada da tela para visualizar um objeto
-    public function visualizacao($example_id)
+    public function visualizacao($empresa_id)
     {
         $success = true;
         $log     = [];
 
-        $example = Example::find($example_id);
+        $empresa = Empresa::find($empresa_id);
 
-        if(!isset($example))
+        if(!isset($empresa))
         {
             $success = false;
             $log[]   = ['error' => 'Item não encontrado'];
@@ -159,14 +159,14 @@ class ExampleController extends Controller
 
 
     //post para excluir um objeto
-    public function exclui(Request $request, $example_id)
+    public function exclui(Request $request, $empresa_id)
     {
         $success = true;
         $log     = [];
 
-        $example = Example::find($example_id);
+        $empresa = Empresa::find($empresa_id);
 
-        if(!isset($example))
+        if(!isset($empresa))
         {
             $success = false;
             $log[]   = ['error' => 'Item não encontrado'];

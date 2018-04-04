@@ -5,9 +5,9 @@ namespace App\Http\Locators;
 use Illuminate\Http\Request; 
 use Illuminate\Support\Facades\Redirect; 
 use App\Http\Controllers\Controller; 
-use App\Http\Controllers\ExampleController; 
+use App\Http\Controllers\EmpresaController; 
 
-class ExampleLocator extends Controller
+class EmpresaLocator extends Controller
 {
 
     //path's name of resources/views
@@ -24,7 +24,7 @@ class ExampleLocator extends Controller
     //retorna array do objeto
     public function listagem()
     {
-        $controller = new ExampleController();
+        $controller = new EmpresaController();
 
         $response   = $controller->listagem();
 
@@ -40,7 +40,7 @@ class ExampleLocator extends Controller
     //chamada da tela para adicionar um objeto
     public function adicao()
     {
-        $controller = new ExampleController();
+        $controller = new EmpresaController();
 
         $response   = $controller->adicao();
 
@@ -56,7 +56,7 @@ class ExampleLocator extends Controller
     //post para adicionar um objeto
     public function adiciona(Request $request)
     {
-        $controller = new ExampleController();
+        $controller = new EmpresaController();
 
         $response   = $controller->adiciona($request);
 
@@ -70,11 +70,11 @@ class ExampleLocator extends Controller
 
 
     //chamada da tela para editar um objeto
-    public function edicao($example_id)
+    public function edicao($empresa_id)
     {
-        $controller = new ExampleController();
+        $controller = new EmpresaController();
 
-        $response   = $controller->edicao($example_id);
+        $response   = $controller->edicao($empresa_id);
 
         if(!$response['success'])
         {
@@ -86,11 +86,11 @@ class ExampleLocator extends Controller
 
 
     //post para editar um objeto
-    public function edita(Request $request, $example_id)
+    public function edita(Request $request, $empresa_id)
     {
-        $controller = new ExampleController();
+        $controller = new EmpresaController();
 
-        $response   = $controller->edita($request, $example_id);
+        $response   = $controller->edita($request, $empresa_id);
 
         if(!$response['success'])
         {
@@ -102,11 +102,11 @@ class ExampleLocator extends Controller
 
 
     //chamada da tela para visualizar um objeto
-    public function visualizacao($example_id)
+    public function visualizacao($empresa_id)
     {
-        $controller = new ExampleController();
+        $controller = new EmpresaController();
 
-        $response   = $controller->visualizacao($example_id);
+        $response   = $controller->visualizacao($empresa_id);
 
         if(!$response['success'])
         {
@@ -118,11 +118,11 @@ class ExampleLocator extends Controller
 
 
     //post para excluir um objeto
-    public function exclui(Request $request, $example_id)
+    public function exclui(Request $request, $empresa_id)
     {
-        $controller = new ExampleController();
+        $controller = new EmpresaController();
 
-        $response   = $controller->exclui($request, $example_id);
+        $response   = $controller->exclui($request, $empresa_id);
 
         if(!$response['success'])
         {
