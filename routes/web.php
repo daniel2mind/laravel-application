@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'EmpresaLocator@listagem');
+Route::get('/', function () { return view('welcome'); });
 
 Route::get ('/empresas',                          'EmpresaLocator@lista');
 Route::get ('/empresas/add',                      'EmpresaLocator@adiciona');
@@ -21,11 +21,3 @@ Route::post('/empresas/{empresa_id}/edit',        'EmpresaLocator@editaPost');
 Route::get ('/empresas/{empresa_id}/show',        'EmpresaLocator@visualiza');
 Route::post('/empresas/{empresa_id}/del',         'EmpresaLocator@excluiPost');
 
-
-Route::get ('/empresas',                          'EmpresaLocator@lista');
-Route::get ('/empresas/add',                      'EmpresaLocator@adiciona');
-Route::post('/empresas/add',                      'EmpresaLocator@adicionaPost');
-Route::get ('/empresas/{empresa_id}/edit',        'EmpresaLocator@edita');
-Route::post('/empresas/{empresa_id}/edit',        'EmpresaLocator@editaPost');
-Route::get ('/empresas/{empresa_id}/show',        'EmpresaLocator@visualiza');
-Route::post('/empresas/{empresa_id}/del',         'EmpresaLocator@excluiPost');

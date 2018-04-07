@@ -50,10 +50,9 @@ class CheckPermission
 
     public static function check($function, $object)
     {
-
-
-        $functions = ${$object.'Permission'}::$functions;
-
+        $name      = "\App\Http\Permissions\\".$object.'Permission';
+        $class     = new $name();
+        $functions = $class::$functions;
 
         /**
          * Se a função não estiver listada no array, a permissão é negada
@@ -74,13 +73,10 @@ class CheckPermission
         }
 
         /**
-         * Se a função estver listada com controle positivo, mas o usuário nao possuir a permissão, o acesso é bloqueado
+         * Se a função estiver listada com controle positivo, mas o usuário nao possuir a permissão, o acesso é bloqueado
          *
-         *
-        if(!in_array($function, Auth::user()->getPermissions()))
-        {
-            return false;
-        }*/
+         */
+        //if(!in_array($function, Auth::user()->getPermissions())) { return false; }
 
 
         return true;

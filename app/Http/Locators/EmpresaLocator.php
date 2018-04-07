@@ -65,7 +65,7 @@ class EmpresaLocator extends Controller
             return Redirect::back()->withInput()->with('log',$response['log']);
         }
 
-        return \redirect('/')->with('log',$response['log']);
+        return \redirect('/empresas')->with('log',$response['log']);
     }
 
 
@@ -97,7 +97,7 @@ class EmpresaLocator extends Controller
             return Redirect::back()->withInput()->with('log',$response['log']);
         }
 
-        return \redirect('/')->with('log',$response['log']);
+        return \redirect('/empresas')->with('log',$response['log']);
     }
 
 
@@ -129,7 +129,7 @@ class EmpresaLocator extends Controller
             return Redirect::back()->withInput()->with('log',$response['log']);
         }
 
-        return \redirect('/')->with('log',$response['log']);
+        return \redirect('/empresas')->with('log',$response['log']);
     }
 
 
