@@ -77,7 +77,7 @@ class EmpresaController extends Controller
 
 
     //chamada da tela para editar um objeto
-    public function editaPost($empresa_id)
+    public function edita($empresa_id)
     {
         $success = true;
         $log     = [];
@@ -97,7 +97,7 @@ class EmpresaController extends Controller
 
 
     //post para editar um objeto
-    public function edita(Request $request, $empresa_id)
+    public function editaPost(Request $request, $empresa_id)
     {
         $success = true;
         $log     = [];
