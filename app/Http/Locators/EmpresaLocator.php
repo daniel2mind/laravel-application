@@ -22,11 +22,11 @@ class EmpresaLocator extends Controller
 
 
     //retorna array do objeto
-    public function listagem()
+    public function lista()
     {
         $controller = new EmpresaController();
 
-        $response   = $controller->listagem();
+        $response   = $controller->lista();
 
         if(!$response['success'])
         {
@@ -38,11 +38,11 @@ class EmpresaLocator extends Controller
 
 
     //chamada da tela para adicionar um objeto
-    public function adicao()
+    public function adiciona()
     {
         $controller = new EmpresaController();
 
-        $response   = $controller->adicao();
+        $response   = $controller->adiciona();
 
         if(!$response['success'])
         {
@@ -54,11 +54,11 @@ class EmpresaLocator extends Controller
 
 
     //post para adicionar um objeto
-    public function adiciona(Request $request)
+    public function adicionaPost(Request $request)
     {
         $controller = new EmpresaController();
 
-        $response   = $controller->adiciona($request);
+        $response   = $controller->adicionaPost($request);
 
         if(!$response['success'])
         {
@@ -70,11 +70,11 @@ class EmpresaLocator extends Controller
 
 
     //chamada da tela para editar um objeto
-    public function edicao($empresa_id)
+    public function edita($empresa_id)
     {
         $controller = new EmpresaController();
 
-        $response   = $controller->edicao($empresa_id);
+        $response   = $controller->edita($empresa_id);
 
         if(!$response['success'])
         {
@@ -86,11 +86,11 @@ class EmpresaLocator extends Controller
 
 
     //post para editar um objeto
-    public function edita(Request $request, $empresa_id)
+    public function editaPost(Request $request, $empresa_id)
     {
         $controller = new EmpresaController();
 
-        $response   = $controller->edita($request, $empresa_id);
+        $response   = $controller->editaPost($request, $empresa_id);
 
         if(!$response['success'])
         {
@@ -102,11 +102,11 @@ class EmpresaLocator extends Controller
 
 
     //chamada da tela para visualizar um objeto
-    public function visualizacao($empresa_id)
+    public function visualiza($empresa_id)
     {
         $controller = new EmpresaController();
 
-        $response   = $controller->visualizacao($empresa_id);
+        $response   = $controller->visualiza($empresa_id);
 
         if(!$response['success'])
         {
@@ -118,11 +118,11 @@ class EmpresaLocator extends Controller
 
 
     //post para excluir um objeto
-    public function exclui(Request $request, $empresa_id)
+    public function excluiPost(Request $request, $empresa_id)
     {
         $controller = new EmpresaController();
 
-        $response   = $controller->exclui($request, $empresa_id);
+        $response   = $controller->excluiPost($request, $empresa_id);
 
         if(!$response['success'])
         {

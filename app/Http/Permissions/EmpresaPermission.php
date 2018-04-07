@@ -17,13 +17,13 @@ class EmpresaPermission
      */ 
     public static $functions = [
 
-       'listagem'     => [ 'controle' => '1', 'familia' => 'Cadastro de Empresa', 'descricao' => 'Listar Empresa'],
-       'adicao'       => [ 'controle' => '0', 'familia' => 'Cadastro de Empresa', 'descricao' => 'Tela de cadastro de Empresa'],
-       'adiciona'     => [ 'controle' => '1', 'familia' => 'Cadastro de Empresa', 'descricao' => 'Adicionar Empresa'],
-       'edicao'       => [ 'controle' => '0', 'familia' => 'Cadastro de Empresa', 'descricao' => 'Tela de edição de Empresa'],
-       'edita'        => [ 'controle' => '1', 'familia' => 'Cadastro de Empresa', 'descricao' => 'Editar Empresa'],
-       'visualizacao' => [ 'controle' => '1', 'familia' => 'Cadastro de Empresa', 'descricao' => 'Visualizar Empresa'],
-       'exclui'       => [ 'controle' => '1', 'familia' => 'Cadastro de Empresa', 'descricao' => 'Excluir Empresa'],
+       'lista'         => [ 'controle' => '1', 'familia' => 'Cadastro de Empresa', 'descricao' => 'Listar Empresa'],
+       'adiciona'      => [ 'controle' => '0', 'familia' => 'Cadastro de Empresa', 'descricao' => 'Tela de cadastro de Empresa'],
+       'adicionaPost'  => [ 'controle' => '1', 'familia' => 'Cadastro de Empresa', 'descricao' => 'Adicionar Empresa'],
+       'edita'         => [ 'controle' => '0', 'familia' => 'Cadastro de Empresa', 'descricao' => 'Tela de edição de Empresa'],
+       'editaPost'     => [ 'controle' => '1', 'familia' => 'Cadastro de Empresa', 'descricao' => 'Editar Empresa'],
+       'visualiza'     => [ 'controle' => '1', 'familia' => 'Cadastro de Empresa', 'descricao' => 'Visualizar Empresa'],
+       'excluiPost'    => [ 'controle' => '1', 'familia' => 'Cadastro de Empresa', 'descricao' => 'Excluir Empresa'],
     ];
 
 }

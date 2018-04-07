@@ -2,7 +2,6 @@
 
 namespace App\Http\Middleware;
 
-use App\Http\Permissions\EmpresaPermission;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -52,7 +51,8 @@ class CheckPermission
     public static function check($function, $object)
     {
 
-        $functions = EmpresaPermission::$functions;
+
+        $functions = ${$object.'Permission'}::$functions;
 
 
         /**
@@ -76,11 +76,11 @@ class CheckPermission
         /**
          * Se a função estver listada com controle positivo, mas o usuário nao possuir a permissão, o acesso é bloqueado
          *
-         */
+         *
         if(!in_array($function, Auth::user()->getPermissions()))
         {
             return false;
-        }
+        }*/
 
 
         return true;

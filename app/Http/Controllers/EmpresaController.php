@@ -17,7 +17,7 @@ class EmpresaController extends Controller
 
 
     //retorna array do objeto
-    public function listagem()
+    public function lista()
     {
         $success = true;
         $log     = [];
@@ -31,7 +31,7 @@ class EmpresaController extends Controller
 
 
     //chamada da tela para adicionar um objeto
-    public function adicao()
+    public function adiciona()
     {
         $success = true;
         $log     = [];
@@ -46,7 +46,7 @@ class EmpresaController extends Controller
 
 
     //post para adicionar um objeto
-    public function adiciona(Request $request)
+    public function adicionaPost(Request $request)
     {
         $success = true;
         $log     = [];
@@ -77,7 +77,7 @@ class EmpresaController extends Controller
 
 
     //chamada da tela para editar um objeto
-    public function edicao($empresa_id)
+    public function editaPost($empresa_id)
     {
         $success = true;
         $log     = [];
@@ -139,7 +139,7 @@ class EmpresaController extends Controller
 
 
     //chamada da tela para visualizar um objeto
-    public function visualizacao($empresa_id)
+    public function visualiza($empresa_id)
     {
         $success = true;
         $log     = [];
@@ -159,7 +159,7 @@ class EmpresaController extends Controller
 
 
     //post para excluir um objeto
-    public function exclui(Request $request, $empresa_id)
+    public function excluiPost(Request $request, $empresa_id)
     {
         $success = true;
         $log     = [];

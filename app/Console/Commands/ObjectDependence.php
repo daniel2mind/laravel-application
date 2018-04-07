@@ -19,7 +19,7 @@ class ObjectDependence extends Command
      *
      * @var string
      */
-    protected $description = 'Generate object dependences like models, controllers, locators and permissions';
+    protected $description = 'Generate object dependences like models, controllers, locators, permissions and routes';
 
     /**
      * Create a new command instance.
@@ -39,6 +39,7 @@ class ObjectDependence extends Command
     public function handle()
     {
         $object = $this->argument('name');
+
 
         /*
          * Generate model
@@ -122,19 +123,19 @@ class ObjectDependence extends Command
             $content .= "    //construct\n";
             $content .= "    public function __construct()\n    {\n         //\n    }\n\n\n";
             $content .= "    //retorna array do objeto\n";
-            $content .= "    public function listagem()\n    {\n        \$success = true;\n        \$log     = [];\n\n        //\n\n        \$response['success'] = \$success;\n        \$response['log']     = \$log;\n        return \$response;\n    }\n\n\n";
+            $content .= "    public function lista()\n    {\n        \$success = true;\n        \$log     = [];\n\n        //\n\n        \$response['success'] = \$success;\n        \$response['log']     = \$log;\n        return \$response;\n    }\n\n\n";
             $content .= "    //chamada da tela para adicionar um objeto\n";
-            $content .= "    public function adicao()\n    {\n        \$success = true;\n        \$log     = [];\n\n        $".strtolower($object)." = new $object();\n\n        \$response['success'] = \$success;\n        \$response['log']     = \$log;\n        \$response['".strtolower($object)."'] = $".strtolower($object).";\n        return \$response;\n    }\n\n\n";
+            $content .= "    public function adiciona()\n    {\n        \$success = true;\n        \$log     = [];\n\n        $".strtolower($object)." = new $object();\n\n        \$response['success'] = \$success;\n        \$response['log']     = \$log;\n        \$response['".strtolower($object)."'] = $".strtolower($object).";\n        return \$response;\n    }\n\n\n";
             $content .= "    //post para adicionar um objeto\n";
-            $content .= "    public function adiciona(Request \$request)\n    {\n        \$success = true;\n        \$log     = [];\n\n        \$rules = [];\n\n        \$validator = Validator::make(\$request->all(), \$rules, $object::\$messages);\n\n        if (\$validator->fails())\n        {\n            \$success = false;\n\n            foreach(\$validator->messages()->all() as \$message)\n            {\n                \$log[] = ['error' => \$message];\n            }\n        }\n\n        if (\$success)\n        {\n            //\n        }\n\n        \$response['success'] = \$success;\n        \$response['log']     = \$log;\n        return \$response;\n    }\n\n\n";
+            $content .= "    public function adicionaPost(Request \$request)\n    {\n        \$success = true;\n        \$log     = [];\n\n        \$rules = [];\n\n        \$validator = Validator::make(\$request->all(), \$rules, $object::\$messages);\n\n        if (\$validator->fails())\n        {\n            \$success = false;\n\n            foreach(\$validator->messages()->all() as \$message)\n            {\n                \$log[] = ['error' => \$message];\n            }\n        }\n\n        if (\$success)\n        {\n            //\n        }\n\n        \$response['success'] = \$success;\n        \$response['log']     = \$log;\n        return \$response;\n    }\n\n\n";
             $content .= "    //chamada da tela para editar um objeto\n";
-            $content .= "    public function edicao($".strtolower($object)."_id)\n    {\n        \$success = true;\n        \$log     = [];\n\n        $".strtolower($object)." = $object::find($".strtolower($object)."_id);\n\n        if(!isset($".strtolower($object)."))\n        {\n            \$success = false;\n            \$log[]   = ['error' => 'Item não encontrado'];\n        }\n\n        \$response['success'] = \$success;\n        \$response['log']     = \$log;\n        return \$response;\n    }\n\n\n";
+            $content .= "    public function editaPost($".strtolower($object)."_id)\n    {\n        \$success = true;\n        \$log     = [];\n\n        $".strtolower($object)." = $object::find($".strtolower($object)."_id);\n\n        if(!isset($".strtolower($object)."))\n        {\n            \$success = false;\n            \$log[]   = ['error' => 'Item não encontrado'];\n        }\n\n        \$response['success'] = \$success;\n        \$response['log']     = \$log;\n        return \$response;\n    }\n\n\n";
             $content .= "    //post para editar um objeto\n";
             $content .= "    public function edita(Request \$request, $".strtolower($object)."_id)\n    {\n        \$success = true;\n        \$log     = [];\n\n        $".strtolower($object)." = $object::find($".strtolower($object)."_id);\n\n        if(!isset($".strtolower($object)."))\n        {\n            \$success = false;\n            \$log[]   = ['error' => 'Item não encontrado'];\n        }\n        else\n        {\n            \$rules = [];\n\n           \$validator = Validator::make(\$request->all(), \$rules, $object::\$messages);\n\n           if (\$validator->fails())\n           {\n               \$success = false;\n\n               foreach(\$validator->messages()->all() as \$message)\n               {\n                   \$log[] = ['error' => \$message];\n               }\n           }\n\n           if (\$success)\n           {\n               //\n           }\n\n        }\n\n        \$response['success'] = \$success;\n        \$response['log']     = \$log;\n        return \$response;\n    }\n\n\n";
             $content .= "    //chamada da tela para visualizar um objeto\n";
-            $content .= "    public function visualizacao($".strtolower($object)."_id)\n    {\n        \$success = true;\n        \$log     = [];\n\n        $".strtolower($object)." = $object::find($".strtolower($object)."_id);\n\n        if(!isset($".strtolower($object)."))\n        {\n            \$success = false;\n            \$log[]   = ['error' => 'Item não encontrado'];\n        }\n\n        \$response['success'] = \$success;\n        \$response['log']     = \$log;\n        return \$response;\n    }\n\n\n";
+            $content .= "    public function visualiza($".strtolower($object)."_id)\n    {\n        \$success = true;\n        \$log     = [];\n\n        $".strtolower($object)." = $object::find($".strtolower($object)."_id);\n\n        if(!isset($".strtolower($object)."))\n        {\n            \$success = false;\n            \$log[]   = ['error' => 'Item não encontrado'];\n        }\n\n        \$response['success'] = \$success;\n        \$response['log']     = \$log;\n        return \$response;\n    }\n\n\n";
             $content .= "    //post para excluir um objeto\n";
-            $content .= "    public function exclui(Request \$request, $".strtolower($object)."_id)\n    {\n        \$success = true;\n        \$log     = [];\n\n        $".strtolower($object)." = $object::find($".strtolower($object)."_id);\n\n        if(!isset($".strtolower($object)."))\n        {\n            \$success = false;\n            \$log[]   = ['error' => 'Item não encontrado'];\n        }\n        else\n        {\n            //\n        }\n\n        \$response['success'] = \$success;\n        \$response['log']     = \$log;\n        return \$response;\n    }\n\n\n";
+            $content .= "    public function excluiPost(Request \$request, $".strtolower($object)."_id)\n    {\n        \$success = true;\n        \$log     = [];\n\n        $".strtolower($object)." = $object::find($".strtolower($object)."_id);\n\n        if(!isset($".strtolower($object)."))\n        {\n            \$success = false;\n            \$log[]   = ['error' => 'Item não encontrado'];\n        }\n        else\n        {\n            //\n        }\n\n        \$response['success'] = \$success;\n        \$response['log']     = \$log;\n        return \$response;\n    }\n\n\n";
             $content .= "}";
 
             $file = fopen(base_path("app/Http/Controllers/".$object."Controller.php"),'w+');
@@ -182,19 +183,19 @@ class ObjectDependence extends Command
             $content .= "    //construct\n";
             $content .= "    public function __construct()\n    {\n         \$this->middleware('permissions', [ 'except' => []]);\n    }\n\n\n";
             $content .= "    //retorna array do objeto\n";
-            $content .= "    public function listagem()\n    {\n        \$controller = new ".$object."Controller();\n\n        \$response   = \$controller->listagem();\n\n        if(!\$response['success'])\n        {\n            return Redirect::back()->withInput()->with('log',\$response['log']);\n        }\n\n        return view(\$this->basePathViews.'', \$response);\n    }\n\n\n";
+            $content .= "    public function lista()\n    {\n        \$controller = new ".$object."Controller();\n\n        \$response   = \$controller->lista();\n\n        if(!\$response['success'])\n        {\n            return Redirect::back()->withInput()->with('log',\$response['log']);\n        }\n\n        return view(\$this->basePathViews.'', \$response);\n    }\n\n\n";
             $content .= "    //chamada da tela para adicionar um objeto\n";
-            $content .= "    public function adicao()\n    {\n        \$controller = new ".$object."Controller();\n\n        \$response   = \$controller->adicao();\n\n        if(!\$response['success'])\n        {\n            return Redirect::back()->withInput()->with('log',\$response['log']);\n        }\n\n        return view(\$this->basePathViews.'', \$response);\n    }\n\n\n";
+            $content .= "    public function adiciona()\n    {\n        \$controller = new ".$object."Controller();\n\n        \$response   = \$controller->adiciona();\n\n        if(!\$response['success'])\n        {\n            return Redirect::back()->withInput()->with('log',\$response['log']);\n        }\n\n        return view(\$this->basePathViews.'', \$response);\n    }\n\n\n";
             $content .= "    //post para adicionar um objeto\n";
-            $content .= "    public function adiciona(Request \$request)\n    {\n        \$controller = new ".$object."Controller();\n\n        \$response   = \$controller->adiciona(\$request);\n\n        if(!\$response['success'])\n        {\n            return Redirect::back()->withInput()->with('log',\$response['log']);\n        }\n\n        return \\redirect('/')->with('log',\$response['log']);\n    }\n\n\n";
+            $content .= "    public function adicionaPost(Request \$request)\n    {\n        \$controller = new ".$object."Controller();\n\n        \$response   = \$controller->adicionaPost(\$request);\n\n        if(!\$response['success'])\n        {\n            return Redirect::back()->withInput()->with('log',\$response['log']);\n        }\n\n        return \\redirect('/')->with('log',\$response['log']);\n    }\n\n\n";
             $content .= "    //chamada da tela para editar um objeto\n";
-            $content .= "    public function edicao($".strtolower($object)."_id)\n    {\n        \$controller = new ".$object."Controller();\n\n        \$response   = \$controller->edicao($".strtolower($object)."_id);\n\n        if(!\$response['success'])\n        {\n            return Redirect::back()->withInput()->with('log',\$response['log']);\n        }\n\n        return view(\$this->basePathViews.'', \$response);\n    }\n\n\n";
+            $content .= "    public function edita($".strtolower($object)."_id)\n    {\n        \$controller = new ".$object."Controller();\n\n        \$response   = \$controller->edita($".strtolower($object)."_id);\n\n        if(!\$response['success'])\n        {\n            return Redirect::back()->withInput()->with('log',\$response['log']);\n        }\n\n        return view(\$this->basePathViews.'', \$response);\n    }\n\n\n";
             $content .= "    //post para editar um objeto\n";
-            $content .= "    public function edita(Request \$request, $".strtolower($object)."_id)\n    {\n        \$controller = new ".$object."Controller();\n\n        \$response   = \$controller->edita(\$request, $".strtolower($object)."_id);\n\n        if(!\$response['success'])\n        {\n            return Redirect::back()->withInput()->with('log',\$response['log']);\n        }\n\n        return \\redirect('/')->with('log',\$response['log']);\n    }\n\n\n";
+            $content .= "    public function editaPost(Request \$request, $".strtolower($object)."_id)\n    {\n        \$controller = new ".$object."Controller();\n\n        \$response   = \$controller->editaPost(\$request, $".strtolower($object)."_id);\n\n        if(!\$response['success'])\n        {\n            return Redirect::back()->withInput()->with('log',\$response['log']);\n        }\n\n        return \\redirect('/')->with('log',\$response['log']);\n    }\n\n\n";
             $content .= "    //chamada da tela para visualizar um objeto\n";
-            $content .= "    public function visualizacao($".strtolower($object)."_id)\n    {\n        \$controller = new ".$object."Controller();\n\n        \$response   = \$controller->visualizacao($".strtolower($object)."_id);\n\n        if(!\$response['success'])\n        {\n            return Redirect::back()->withInput()->with('log',\$response['log']);\n        }\n\n        return view(\$this->basePathViews.'', \$response);\n    }\n\n\n";
+            $content .= "    public function visualiza($".strtolower($object)."_id)\n    {\n        \$controller = new ".$object."Controller();\n\n        \$response   = \$controller->visualiza($".strtolower($object)."_id);\n\n        if(!\$response['success'])\n        {\n            return Redirect::back()->withInput()->with('log',\$response['log']);\n        }\n\n        return view(\$this->basePathViews.'', \$response);\n    }\n\n\n";
             $content .= "    //post para excluir um objeto\n";
-            $content .= "    public function exclui(Request \$request, $".strtolower($object)."_id)\n    {\n        \$controller = new ".$object."Controller();\n\n        \$response   = \$controller->exclui(\$request, $".strtolower($object)."_id);\n\n        if(!\$response['success'])\n        {\n            return Redirect::back()->withInput()->with('log',\$response['log']);\n        }\n\n        return \\redirect('/')->with('log',\$response['log']);\n    }\n\n\n";
+            $content .= "    public function excluiPost(Request \$request, $".strtolower($object)."_id)\n    {\n        \$controller = new ".$object."Controller();\n\n        \$response   = \$controller->excluiPost(\$request, $".strtolower($object)."_id);\n\n        if(!\$response['success'])\n        {\n            return Redirect::back()->withInput()->with('log',\$response['log']);\n        }\n\n        return \\redirect('/')->with('log',\$response['log']);\n    }\n\n\n";
             $content .= "}";
 
             $file = fopen(base_path("app/Http/Locators/".$object."Locator.php"),'w+');
@@ -242,13 +243,13 @@ class ObjectDependence extends Command
             $content .= "     * \n";
             $content .= "     */ \n";
             $content .= "    public static \$functions = [\n\n";
-            $content .= "       'listagem'     => [ 'controle' => '1', 'familia' => 'Cadastro de ".$object."', 'descricao' => 'Listar ".$object."'],\n";
-            $content .= "       'adicao'       => [ 'controle' => '0', 'familia' => 'Cadastro de ".$object."', 'descricao' => 'Tela de cadastro de ".$object."'],\n";
-            $content .= "       'adiciona'     => [ 'controle' => '1', 'familia' => 'Cadastro de ".$object."', 'descricao' => 'Adicionar ".$object."'],\n";
-            $content .= "       'edicao'       => [ 'controle' => '0', 'familia' => 'Cadastro de ".$object."', 'descricao' => 'Tela de edição de ".$object."'],\n";
-            $content .= "       'edita'        => [ 'controle' => '1', 'familia' => 'Cadastro de ".$object."', 'descricao' => 'Editar ".$object."'],\n";
-            $content .= "       'visualizacao' => [ 'controle' => '1', 'familia' => 'Cadastro de ".$object."', 'descricao' => 'Visualizar ".$object."'],\n";
-            $content .= "       'exclui'       => [ 'controle' => '1', 'familia' => 'Cadastro de ".$object."', 'descricao' => 'Excluir ".$object."'],\n";
+            $content .= "       'lista'         => [ 'controle' => '1', 'familia' => 'Cadastro de ".$object."', 'descricao' => 'Listar ".$object."'],\n";
+            $content .= "       'adiciona'      => [ 'controle' => '0', 'familia' => 'Cadastro de ".$object."', 'descricao' => 'Tela de cadastro de ".$object."'],\n";
+            $content .= "       'adicionaPost'  => [ 'controle' => '1', 'familia' => 'Cadastro de ".$object."', 'descricao' => 'Adicionar ".$object."'],\n";
+            $content .= "       'edita'         => [ 'controle' => '0', 'familia' => 'Cadastro de ".$object."', 'descricao' => 'Tela de edição de ".$object."'],\n";
+            $content .= "       'editaPost'     => [ 'controle' => '1', 'familia' => 'Cadastro de ".$object."', 'descricao' => 'Editar ".$object."'],\n";
+            $content .= "       'visualiza'     => [ 'controle' => '1', 'familia' => 'Cadastro de ".$object."', 'descricao' => 'Visualizar ".$object."'],\n";
+            $content .= "       'excluiPost'    => [ 'controle' => '1', 'familia' => 'Cadastro de ".$object."', 'descricao' => 'Excluir ".$object."'],\n";
             $content .= "    ];\n\n";
             $content .= "}";
 
@@ -257,6 +258,42 @@ class ObjectDependence extends Command
             fclose($file);
 
             $this->info('Permission created successfully');
+
+        }
+
+
+        /*
+         * Generate routes
+         *
+         */
+        $route = true;
+
+        if(!$this->confirm('Do you really wanna create routes too?', true))
+        {
+            $route = false;
+        }
+
+        if(!$route)
+        {
+            $this->comment('Route don\'t created ');
+        }
+        else
+        {
+            $route = fopen(base_path('routes/web.php'), "a");
+
+            $content  = "Route::get ('/".strtolower($object)."s',                          '".$object."Locator@lista');\n";
+            $content .= "Route::get ('/".strtolower($object)."s/add',                      '".$object."Locator@adiciona');\n";
+            $content .= "Route::post('/".strtolower($object)."s/add',                      '".$object."Locator@adicionaPost');\n";
+            $content .= "Route::get ('/".strtolower($object)."s/{".strtolower($object)."_id}/edit',        '".$object."Locator@edita');\n";
+            $content .= "Route::post('/".strtolower($object)."s/{".strtolower($object)."_id}/edit',        '".$object."Locator@editaPost');\n";
+            $content .= "Route::get ('/".strtolower($object)."s/{".strtolower($object)."_id}/show',        '".$object."Locator@visualiza');\n";
+            $content .= "Route::post('/".strtolower($object)."s/{".strtolower($object)."_id}/del',         '".$object."Locator@excluiPost');\n";
+
+            fwrite($route, "\n\n". $content);
+            fclose($route);
+
+            $this->info('Route created successfully');
+
 
         }
 
