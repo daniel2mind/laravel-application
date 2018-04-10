@@ -25,4 +25,8 @@ class PerfilPermissao extends Model
     //Messages to show when validation fails 
     public static $messages = [];
 
+    public function permissoes()
+    {
+        $this->belongsTo('App\Permissao','id','permissao_id');
+    }
 }

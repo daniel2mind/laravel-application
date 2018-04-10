@@ -33,6 +33,7 @@ class CheckPermission
         $locator = substr($locator, strrpos($locator, "\\") + 1);
         $object  = str_replace('Locator', '', $locator);
 
+
         /*
          * Se não achar a permissão aplicada ao perfil, retornará status 403
          *
@@ -76,7 +77,10 @@ class CheckPermission
          * Se a função estiver listada com controle positivo, mas o usuário nao possuir a permissão, o acesso é bloqueado
          *
          */
-        //if(!in_array($function, Auth::user()->getPermissions())) { return false; }
+        if(!in_array("{$object}Locator@{$function}", Cache::get(Auth::user()->id.'-permissions')))
+        {
+            return false;
+        }
 
 
         return true;
