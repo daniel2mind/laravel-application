@@ -5,9 +5,9 @@ namespace App\Http\Locators;
 use Illuminate\Http\Request; 
 use Illuminate\Support\Facades\Redirect; 
 use App\Http\Controllers\Controller; 
-use App\Http\Controllers\EmpresaController; 
+use App\Http\Controllers\PerfilController; 
 
-class EmpresaLocator extends Controller
+class PerfilLocator extends Controller
 {
 
     //path's name of resources/views
@@ -24,7 +24,7 @@ class EmpresaLocator extends Controller
     //retorna array do objeto
     public function lista()
     {
-        $controller = new EmpresaController();
+        $controller = new PerfilController();
 
         $response   = $controller->lista();
 
@@ -40,7 +40,7 @@ class EmpresaLocator extends Controller
     //chamada da tela para adicionar um objeto
     public function adiciona()
     {
-        $controller = new EmpresaController();
+        $controller = new PerfilController();
 
         $response   = $controller->adiciona();
 
@@ -56,7 +56,7 @@ class EmpresaLocator extends Controller
     //post para adicionar um objeto
     public function adicionaPost(Request $request)
     {
-        $controller = new EmpresaController();
+        $controller = new PerfilController();
 
         $response   = $controller->adicionaPost($request);
 
@@ -70,11 +70,11 @@ class EmpresaLocator extends Controller
 
 
     //chamada da tela para editar um objeto
-    public function edita($empresa_id)
+    public function edita($perfil_id)
     {
-        $controller = new EmpresaController();
+        $controller = new PerfilController();
 
-        $response   = $controller->edita($empresa_id);
+        $response   = $controller->edita($perfil_id);
 
         if(!$response['success'])
         {
@@ -86,11 +86,11 @@ class EmpresaLocator extends Controller
 
 
     //post para editar um objeto
-    public function editaPost(Request $request, $empresa_id)
+    public function editaPost(Request $request, $perfil_id)
     {
-        $controller = new EmpresaController();
+        $controller = new PerfilController();
 
-        $response   = $controller->editaPost($request, $empresa_id);
+        $response   = $controller->editaPost($request, $perfil_id);
 
         if(!$response['success'])
         {
@@ -102,11 +102,11 @@ class EmpresaLocator extends Controller
 
 
     //chamada da tela para visualizar um objeto
-    public function visualiza($empresa_id)
+    public function visualiza($perfil_id)
     {
-        $controller = new EmpresaController();
+        $controller = new PerfilController();
 
-        $response   = $controller->visualiza($empresa_id);
+        $response   = $controller->visualiza($perfil_id);
 
         if(!$response['success'])
         {
@@ -118,11 +118,11 @@ class EmpresaLocator extends Controller
 
 
     //post para excluir um objeto
-    public function excluiPost(Request $request, $empresa_id)
+    public function excluiPost(Request $request, $perfil_id)
     {
-        $controller = new EmpresaController();
+        $controller = new PerfilController();
 
-        $response   = $controller->excluiPost($request, $empresa_id);
+        $response   = $controller->excluiPost($request, $perfil_id);
 
         if(!$response['success'])
         {

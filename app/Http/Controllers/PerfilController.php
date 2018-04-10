@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers; 
 
-use App\Empresa; 
+use App\Perfil; 
 use Illuminate\Http\Request; 
 use Validator; 
 
-class EmpresaController extends Controller
+class PerfilController extends Controller
 {
 
     //construct
@@ -36,11 +36,11 @@ class EmpresaController extends Controller
         $success = true;
         $log     = [];
 
-        $empresa = new Empresa();
+        $perfil = new Perfil();
 
         $response['success'] = $success;
         $response['log']     = $log;
-        $response['empresa'] = $empresa;
+        $response['perfil'] = $perfil;
         return $response;
     }
 
@@ -53,7 +53,7 @@ class EmpresaController extends Controller
 
         $rules = [];
 
-        $validator = Validator::make($request->all(), $rules, Empresa::$messages);
+        $validator = Validator::make($request->all(), $rules, Perfil::$messages);
 
         if ($validator->fails())
         {
@@ -77,14 +77,14 @@ class EmpresaController extends Controller
 
 
     //chamada da tela para editar um objeto
-    public function edita($empresa_id)
+    public function edita($perfil_id)
     {
         $success = true;
         $log     = [];
 
-        $empresa = Empresa::find($empresa_id);
+        $perfil = Perfil::find($perfil_id);
 
-        if(!isset($empresa))
+        if(!isset($perfil))
         {
             $success = false;
             $log[]   = ['error' => 'Item não encontrado'];
@@ -97,14 +97,14 @@ class EmpresaController extends Controller
 
 
     //post para editar um objeto
-    public function editaPost(Request $request, $empresa_id)
+    public function editaPost(Request $request, $perfil_id)
     {
         $success = true;
         $log     = [];
 
-        $empresa = Empresa::find($empresa_id);
+        $perfil = Perfil::find($perfil_id);
 
-        if(!isset($empresa))
+        if(!isset($perfil))
         {
             $success = false;
             $log[]   = ['error' => 'Item não encontrado'];
@@ -113,7 +113,7 @@ class EmpresaController extends Controller
         {
             $rules = [];
 
-           $validator = Validator::make($request->all(), $rules, Empresa::$messages);
+           $validator = Validator::make($request->all(), $rules, Perfil::$messages);
 
            if ($validator->fails())
            {
@@ -139,14 +139,14 @@ class EmpresaController extends Controller
 
 
     //chamada da tela para visualizar um objeto
-    public function visualiza($empresa_id)
+    public function visualiza($perfil_id)
     {
         $success = true;
         $log     = [];
 
-        $empresa = Empresa::find($empresa_id);
+        $perfil = Perfil::find($perfil_id);
 
-        if(!isset($empresa))
+        if(!isset($perfil))
         {
             $success = false;
             $log[]   = ['error' => 'Item não encontrado'];
@@ -159,14 +159,14 @@ class EmpresaController extends Controller
 
 
     //post para excluir um objeto
-    public function excluiPost(Request $request, $empresa_id)
+    public function excluiPost(Request $request, $perfil_id)
     {
         $success = true;
         $log     = [];
 
-        $empresa = Empresa::find($empresa_id);
+        $perfil = Perfil::find($perfil_id);
 
-        if(!isset($empresa))
+        if(!isset($perfil))
         {
             $success = false;
             $log[]   = ['error' => 'Item não encontrado'];

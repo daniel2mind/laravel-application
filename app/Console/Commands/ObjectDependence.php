@@ -243,13 +243,13 @@ class ObjectDependence extends Command
             $content .= "     * \n";
             $content .= "     */ \n";
             $content .= "    public static \$functions = [\n\n";
-            $content .= "       'lista'         => [ 'controle' => '1', 'familia' => 'Cadastro de ".$object."', 'descricao' => 'Listar ".$object."'],\n";
-            $content .= "       'adiciona'      => [ 'controle' => '0', 'familia' => 'Cadastro de ".$object."', 'descricao' => 'Tela de cadastro de ".$object."'],\n";
-            $content .= "       'adicionaPost'  => [ 'controle' => '1', 'familia' => 'Cadastro de ".$object."', 'descricao' => 'Adicionar ".$object."'],\n";
-            $content .= "       'edita'         => [ 'controle' => '0', 'familia' => 'Cadastro de ".$object."', 'descricao' => 'Tela de edição de ".$object."'],\n";
-            $content .= "       'editaPost'     => [ 'controle' => '1', 'familia' => 'Cadastro de ".$object."', 'descricao' => 'Editar ".$object."'],\n";
-            $content .= "       'visualiza'     => [ 'controle' => '1', 'familia' => 'Cadastro de ".$object."', 'descricao' => 'Visualizar ".$object."'],\n";
-            $content .= "       'excluiPost'    => [ 'controle' => '1', 'familia' => 'Cadastro de ".$object."', 'descricao' => 'Excluir ".$object."'],\n";
+            $content .= "       'lista'         => [ 'controle' => '1', 'titulo' => 'Cadastro de ".$object."', 'descricao' => 'Listar ".$object."'],\n";
+            $content .= "       'adiciona'      => [ 'controle' => '0', 'titulo' => 'Cadastro de ".$object."', 'descricao' => 'Tela de cadastro de ".$object."'],\n";
+            $content .= "       'adicionaPost'  => [ 'controle' => '1', 'titulo' => 'Cadastro de ".$object."', 'descricao' => 'Adicionar ".$object."'],\n";
+            $content .= "       'edita'         => [ 'controle' => '0', 'titulo' => 'Cadastro de ".$object."', 'descricao' => 'Tela de edição de ".$object."'],\n";
+            $content .= "       'editaPost'     => [ 'controle' => '1', 'titulo' => 'Cadastro de ".$object."', 'descricao' => 'Editar ".$object."'],\n";
+            $content .= "       'visualiza'     => [ 'controle' => '1', 'titulo' => 'Cadastro de ".$object."', 'descricao' => 'Visualizar ".$object."'],\n";
+            $content .= "       'excluiPost'    => [ 'controle' => '1', 'titulo' => 'Cadastro de ".$object."', 'descricao' => 'Excluir ".$object."'],\n";
             $content .= "    ];\n\n";
             $content .= "}";
 

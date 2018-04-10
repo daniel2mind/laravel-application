@@ -13,11 +13,11 @@
 
 Route::get('/', function () { return view('welcome'); });
 
-Route::get ('/empresas',                          'EmpresaLocator@lista');
-Route::get ('/empresas/add',                      'EmpresaLocator@adiciona');
-Route::post('/empresas/add',                      'EmpresaLocator@adicionaPost');
-Route::get ('/empresas/{empresa_id}/edit',        'EmpresaLocator@edita');
-Route::post('/empresas/{empresa_id}/edit',        'EmpresaLocator@editaPost');
-Route::get ('/empresas/{empresa_id}/show',        'EmpresaLocator@visualiza');
-Route::post('/empresas/{empresa_id}/del',         'EmpresaLocator@excluiPost');
 
+Route::get ('/perfis',                         'PerfilLocator@lista');
+Route::get ('/perfis/add',                     'PerfilLocator@adiciona');
+Route::post('/perfis/add',                     'PerfilLocator@adicionaPost');
+Route::get ('/perfis/{perfil_id}/edit',        'PerfilLocator@edita');
+Route::post('/perfis/{perfil_id}/edit',        'PerfilLocator@editaPost');
+Route::get ('/perfis/{perfil_id}/show',        'PerfilLocator@visualiza');
+Route::post('/perfis/{perfil_id}/del',         'PerfilLocator@excluiPost');
