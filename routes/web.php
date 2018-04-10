@@ -21,3 +21,12 @@ Route::get ('/perfis/{perfil_id}/edit',        'PerfilLocator@edita');
 Route::post('/perfis/{perfil_id}/edit',        'PerfilLocator@editaPost');
 Route::get ('/perfis/{perfil_id}/show',        'PerfilLocator@visualiza');
 Route::post('/perfis/{perfil_id}/del',         'PerfilLocator@excluiPost');
+
+
+Route::get ('/users',                       'UserLocator@lista');
+Route::get ('/users/add',                   'UserLocator@adiciona');
+Route::post('/users/add',                   'UserLocator@adicionaPost');
+Route::get ('/users/{user_id}/edit',        'UserLocator@edita');
+Route::post('/users/{user_id}/edit',        'UserLocator@editaPost');
+Route::get ('/users/{user_id}/show',        'UserLocator@visualiza');
+Route::post('/users/{user_id}/del',         'UserLocator@excluiPost');
